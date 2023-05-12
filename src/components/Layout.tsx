@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
 
-const Layout = ({ children }: any) => (
+const Layout = ({ title, children }: any) => (
     <motion.div
-        className="bg-black w-screen h-screen"
+        className="bg-dark w-screen h-screen p-10 border-lime border-1"
         initial={{ x: 300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 300, opacity: 0 }}

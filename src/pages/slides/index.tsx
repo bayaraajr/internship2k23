@@ -1,12 +1,12 @@
 import Layout from '@/components/Layout';
 import React from 'react';
 
-const Projects = () => {
+const Slides = (props: any) => {
     return (
         <Layout>
-            <h1>Projects</h1>
+            
         </Layout>
     )
 }
 
-export default Projects;
+export default Slides;

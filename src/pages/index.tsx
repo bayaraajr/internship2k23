@@ -25,19 +25,28 @@ export default function Home() {
     <Layout>
       <div className='flex justify-center items-center flex-col w-[100vw] h-full'>
         <div>
-          <div className='flex justify-start items-center'>
-            <div className='h-[100px] w-[100px] p-0 rounded-full overflow-hidden'>
-              <video className='h-full w-full m-0' muted autoPlay loop>
-                <source src="/assets/memoji.mov" />
-              </video>
+          <motion.div transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }} animate={{ x: 0 }} className='absolute w-[400px] top-10 left-[calc(50%_-_200px)] flex justify-center items-center'>
+            <p className='text-3xl text-primary-100 text-center font-bold'>Modern Web Development</p>
+          </motion.div>
+          <motion.div transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }} animate={{ x: 0 }} className='absolute w-[400px] bottom-10 left-[calc(50%_-_200px)] flex justify-start items-center'>
+
+            <div className='flex w-full justify-between'>
+              <p className='text-primary-100 text-left'>by Bayarjargal.J</p>
+              <p className='text-primary-100 text-right'>Internship 2k23</p>
             </div>
-            <div>
-              <p className='text-4xl text-white font-bold'>Modern Web Development</p>
-              <p className='text-white'>by Bayarjargal.J</p>
-            </div>
-          </div>
+
+          </motion.div>
           <MotionConfig transition={transition}>
             <motion.button
+              className='motion-button'
               ref={ref}
               initial={false}
               animate={isHover ? "hover" : "rest"}
@@ -62,7 +71,7 @@ export default function Home() {
                 mouseX.set(e.clientX - bounds.x - bounds.width / 2);
                 mouseY.set(e.clientY - bounds.y - bounds.height / 2);
               }}
-              onClick={() => router.push("/projects")}
+              onClick={() => router.push("/slides/agenda")}
             >
               <motion.div
                 className="shapes"
