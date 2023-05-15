@@ -72,7 +72,7 @@ const Agenda = (props: any) => {
                 <div>
                     <TextAnimate text="Agenda" className="text-4xl uppercase font-bold text-primary-400" />
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 z-2 py-10 mt-10'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 z-2 py-10 lg:mt-10'>
                     {
                         cards.map((card, index) => <motion.div whileHover={{ scale: isDesktop ? 1.8 : 1, translateY: 50, translateX: !isDesktop ? 0 : index === 0 ? 200 : index === 1 ? 100 : index === 2 ? -100 : -200, zIndex: 999 }} initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: 'spring', delay: .15 * index }}>
                             <GlassCard>

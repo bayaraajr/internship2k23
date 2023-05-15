@@ -12,7 +12,11 @@ const Agenda = (props: any) => {
                 <div>
                     <TextAnimate text="Information Security" className="text-4xl uppercase font-bold text-primary-400" />
                 </div>
-
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 z-2 py-10'>
+                    <div className="col-span-1 lg:col-span-4">
+                        <p className="text-secondary-50 text-2xl">Web developers must prioritize security to protect user data and prevent unauthorized access. This includes implementing secure authentication and authorization mechanisms, input validation, and protection against common vulnerabilities like cross-site scripting (XSS) and SQL injection.</p>
+                    </div>
+                </div>
             </div>
         </Layout >
     )

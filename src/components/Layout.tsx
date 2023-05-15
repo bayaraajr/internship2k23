@@ -101,7 +101,7 @@ const Layout = ({ title, children }: any) => {
             </motion.div>
 
         </AnimatePresence>
-        <GlassCard onClick={() => setOpen(o => !o)} className="absolute p-4 rounded-full flex justify-center w-16 h-16 items-center cursor-pointer bottom-10 right-10">
+        <GlassCard onClick={() => setOpen(o => !o)} className="absolute p-4 rounded-full flex justify-center w-16 h-16 items-center cursor-pointer bottom-10 right-10 z-9999">
             <motion.div transition={{ type: "spring" }}>
                 <img src="/icons/doc.gif" />
             </motion.div>
