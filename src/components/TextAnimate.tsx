@@ -15,7 +15,7 @@ export default function TextAnimate({ text, variants, style, key, ...other }: Te
         <motion.p
             style={{
 
-                overflow: 'hidden',
+                overflow: 'unset',
                 display: 'inline-flex',
                 ...style,
             }}

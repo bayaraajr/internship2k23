@@ -16,13 +16,13 @@ const Trends = (props: any) => {
     const cards = [
         <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/ai.gif" className='w-20' />
-            <p className='mt-5 text-secondary-50 font-bold text-center text-2xl'>Development Lifecycle</p>
+            <p className='mt-5 text-secondary-50 font-bold text-center text-2xl'>Web Development</p>
             <ul className='mt-5 text-secondary-900'>
                 <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Fundamentals</li>
-                <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Tips</li>
+                <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Development lifecycle</li>
             </ul>
             <hr />
-            <Button onClick={() => router.push("/slides/essentials/lifecycle")} className='bg-primary-400 hover:bg-primary-600 mt-4'>
+            <Button onClick={() => router.push("/slides/essentials/fundamental")} className='bg-primary-400 hover:bg-primary-600 mt-4'>
                 Get started
             </Button>
         </div>,
@@ -39,7 +39,7 @@ const Trends = (props: any) => {
             </Button>
         </div>,
         <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
-            <img src="/icons/pwa.gif" className='w-20' />
+            <img src="/icons/design.gif" className='w-20' />
             <p className='text-secondary-50 font-bold text-center text-2xl'>Design System & UI/UX</p>
             <ul className='mt-5 text-secondary-900'>
                 <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Responsive design</li>
@@ -50,7 +50,7 @@ const Trends = (props: any) => {
             </Button>
         </div>,
         <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
-            <img src="/icons/pwa.gif" className='w-20' />
+            <img src="/icons/security.gif" className='w-20' />
             <p className='text-secondary-50 font-bold text-center text-2xl'>Information Security</p>
             <ul className='mt-5 text-secondary-900'>
                 <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Secure Coding</li>

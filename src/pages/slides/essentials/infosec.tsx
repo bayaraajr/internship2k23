@@ -10,7 +10,7 @@ const Agenda = (props: any) => {
         <Layout>
             <div className='p-10'>
                 <div>
-                    <TextAnimate text="Information Security" className="text-4xl uppercase font-bold text-primary-400" />
+                    <TextAnimate text="Information Security" className="text-3xl lg:text-4xl uppercase font-bold text-primary-400" />
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 z-2 py-10'>
                     <div className="col-span-1 lg:col-span-4">

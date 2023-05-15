@@ -31,9 +31,9 @@ const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
     }
     return (
         <Layout>
-            <div className='p-10 flex justify-between items-center'>
+            <div className='p-10 lg:flex justify-between items-center'>
                 <TextAnimate text="GPT-3 (DALL E)" className="text-4xl uppercase font-bold text-primary-400" />
-                <div className='flex justify-end items-center'>
+                <div className='flex mt-4 lg:mt-0 justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
                         Previous
                     </Button>
@@ -47,7 +47,7 @@ const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
             </div>
             <div className="px-10">
                 <form onSubmit={generateImage} className='flex items-center mt-10'>
-                    <TextInput disabed={loading} placeholder='Type anything... Alien programmer e.g.' sizing="lg" className="w-full mr-4" value={prompt} onChange={(e: any) => setPrompt(e.target.value)} />
+                    <TextInput disabed={loading} placeholder='Type anything... Alien programmer e.g.' className="w-full mr-4 bg-[none] text-primary-400" style={{ background: "none", color: "#f2056f" }} value={prompt} onChange={(e: any) => setPrompt(e.target.value)} />
                     <Button className='bg-primary-400 hover:bg-primary-600 ' disabled={loading} type="submit">
                         {loading ? <Spinner /> : "Generate"}
                     </Button>
@@ -64,7 +64,10 @@ const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
                         : prompt.length === 0 ? <div className="flex h-full mt-10 flex-col items-center justify-center">
                             <img className="w-24" src="/icons/search.gif" />
                             <p className='text-2xl text-secondary-50'>Search for <b className="text-primary-400">anything</b>...</p>
-                        </div> : <p></p>
+                        </div> :
+                            <div className="flex h-full mt-10 flex-col items-center justify-center">
+                                <p className='text-2xl text-secondary-50'>Generating images for <b className="text-primary-400">{prompt}</b>...</p>
+                            </div>
                 }
             </div>
         </Layout >

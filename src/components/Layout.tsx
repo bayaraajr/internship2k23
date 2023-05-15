@@ -55,15 +55,16 @@ const Layout = ({ title, children }: any) => {
         <AnimatePresence>
             <motion.div style={{ originX: 1, originY: 1 }} exit={'hide'} transition={{ type: "spring" }} key={open} variants={variants} animate={open ? 'show' : 'hide'} initial="hide" className="absolute rounded-xl flex justify-center  items-start cursor-pointer bottom-[7rem] right-10">
                 <GlassCard>
-                    <p className="font-bold text-primary-400 uppercase">Table of content</p>
+                    <p className="font-bold text-primary-400 uppercase select-none">Table of content</p>
                     <ul className="text-secondary-50 p-5 list-disc">
+                        <li><Link href="/slides/introduction">Introduction</Link></li>
                         <li><Link href="/start">Getting started</Link></li>
                         <li>
 
-                            <Link href="/slides/essentials">Essentials</Link>
+                            <Link href="/slides/essentials">General</Link>
                             <ul className="pl-6">
-                                <li><Link href="/slides/essentials/lifecycle">Development Lifecycle</Link></li>
-                                <li><Link href="/slides/essentials/tech-stacks">Technologies</Link></li>
+                                <li><Link href="/slides/essentials/fundamental">Fundamentals</Link></li>
+                                <li><Link href="/slides/essentials/tech-stacks">Tech stack</Link></li>
                                 <li><Link href="/slides/essentials/design">Design System & UI/UX</Link></li>
                                 <li><Link href="/slides/essentials/infosec">InfoSec</Link></li>
                             </ul>
@@ -95,7 +96,7 @@ const Layout = ({ title, children }: any) => {
                 </GlassCard>
 
 
-                <GlassCard onClick={() => window.open("https://github.com/bayaraajr", "_blank")} className="absolute flex justify-center items-center cursor-pointer bottom-[430px] w-full">
+                <GlassCard onClick={() => window.open("https://github.com/bayaraajr", "_blank")} className="absolute flex justify-center items-center cursor-pointer bottom-[450px] w-full">
                     <img src="/assets/profile.png" className="w-10 h-10 rounded-full mr-4" /> <p className="text-secondary-100 text-center">by <b className="text-primary-400">@bayarjargal.jr</b></p>
                 </GlassCard>
             </motion.div>
@@ -103,7 +104,7 @@ const Layout = ({ title, children }: any) => {
         </AnimatePresence>
         <GlassCard onClick={() => setOpen(o => !o)} className="absolute p-4 rounded-full flex justify-center w-16 h-16 items-center cursor-pointer bottom-10 right-10 z-9999">
             <motion.div transition={{ type: "spring" }}>
-                <img src="/icons/doc.gif" />
+                <img src="/icons/doc.gif" className="select-none"/>
             </motion.div>
         </GlassCard>
 

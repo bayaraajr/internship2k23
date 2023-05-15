@@ -8,7 +8,7 @@ const Agenda = (props: any) => {
         <Layout>
             <div className='p-10'>
                 <div>
-                    <TextAnimate text="Web Development tech stacks" className="text-4xl uppercase font-bold text-primary-400" />
+                    <TextAnimate text="Tech Stacks" className="text-4xl uppercase font-bold text-primary-400" />
                 </div>
             </div>
         </Layout >

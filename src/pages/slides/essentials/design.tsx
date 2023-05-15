@@ -10,7 +10,7 @@ const Agenda = (props: any) => {
         <Layout>
             <div className='p-10'>
                 <div>
-                    <TextAnimate text="Design System & UI/UX" className="text-4xl uppercase font-bold text-primary-400" />
+                    <TextAnimate text="Design System & UI/UX" className="text-3xl lg:text-4xl uppercase font-bold text-primary-400" />
                 </div>
 
             </div>
