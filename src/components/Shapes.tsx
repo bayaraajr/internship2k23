@@ -5,7 +5,7 @@ import { transition } from "@/utils/transition";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useSmoothTransform } from "@/hooks/useSmoothTransform";
 
-export function Shapes({ isHover, isPress, mouseX, mouseY }: any) {
+export function Shapes({ isHover, isPress, mouseX, mouseY, ...props }: any) {
     const lightRotateX = useSmoothTransform(mouseY, spring, mouseToLightRotation);
     const lightRotateY = useSmoothTransform(mouseX, spring, mouseToLightRotation);
 

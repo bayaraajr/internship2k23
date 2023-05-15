@@ -1,8 +1,8 @@
 import '@/styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
 import type { AppProps } from 'next/app'
-import { Overpass } from 'next/font/google';
-const inter = Overpass({ subsets: ['cyrillic'] });
+import { Rubik } from 'next/font/google';
+const inter = Rubik({ subsets: ['cyrillic'] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return <main className={inter.className}>

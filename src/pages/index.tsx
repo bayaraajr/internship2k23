@@ -24,26 +24,30 @@ export default function Home() {
   return (
     <Layout>
       <div className='flex justify-center items-center flex-col w-[100vw] h-full'>
+        {/* <motion.div transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }} animate={{ x: 0 }} className='absolute w-[500px] top-10 left-[calc(50%_-_250px)] flex justify-center items-center'>
+          <p className='text-3xl text-primary-500 uppercase text-center font-bold'>Modern Web Development</p>
+        </motion.div>
+        <motion.div transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }} animate={{ x: 0 }} className='absolute w-[400px] bottom-10 left-[calc(50%_-_200px)] flex justify-start items-center'>
+
+          <div className='flex w-full justify-between'>
+            <p className='text-primary-500 text-left'>by Bayarjargal.J</p>
+            <p className='text-primary-500 text-right'>Internship 2k23</p>
+          </div> */}
+
+        {/* </motion.div> */}
+        <motion.p initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 1 }} className='text-secondary-100 w-[400px] text-center text-xl mb-16'>
+          Greetings, everyone. I will take you through the <b className='text-primary-500'>latest trends</b> in web development.
+        </motion.p>
         <div>
-          <motion.div transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-          }} animate={{ x: 0 }} className='absolute w-[400px] top-10 left-[calc(50%_-_200px)] flex justify-center items-center'>
-            <p className='text-3xl text-primary-100 text-center font-bold'>Modern Web Development</p>
-          </motion.div>
-          <motion.div transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-          }} animate={{ x: 0 }} className='absolute w-[400px] bottom-10 left-[calc(50%_-_200px)] flex justify-start items-center'>
 
-            <div className='flex w-full justify-between'>
-              <p className='text-primary-100 text-left'>by Bayarjargal.J</p>
-              <p className='text-primary-100 text-right'>Internship 2k23</p>
-            </div>
-
-          </motion.div>
           <MotionConfig transition={transition}>
             <motion.button
               className='motion-button'

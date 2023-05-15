@@ -8,23 +8,104 @@ import { useState } from 'react';
 import CanvasDraw from "react-canvas-draw";
 import { BATCH_SIZE, TRAIN_BATCHES } from '@/constants/tf';
 import Button from '@/components/Button';
+import TextAnimate from '@/components/TextAnimate';
+import GlassCard from '@/components/GlassCard';
+import dynamic from 'next/dynamic';
+const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
 const Agenda = (props: any) => {
 
     const ref: any = useRef();
+    const [loadingText, setLoadingText] = useState("Loading model...");
     const drawingRef: any = useRef();
     const [model, setModel] = useState<any>(null);
     const [data, setData] = useState<any>(null);
     const [prediction, setPrediction] = useState<any>(0)
     const [customPrediction, setCustomPrediction] = useState<any>(0)
+    const [chart, setChart] = useState({
+        series: [{
+            name: 'Prediction',
+            data: []
+        }],
+        options: {
+            chart: {
+                height: 350,
+                type: 'bar',
+            },
+            plotOptions: {
+                bar: {
+                    borderRadius: 10,
+                    dataLabels: {
+                        position: 'top', // top, center, bottom
+                    },
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                formatter: function (val) {
+                    return val + "%";
+                },
+                offsetY: -20,
+                style: {
+                    fontSize: '12px',
+                    colors: ["#304758"]
+                }
+            },
 
+            xaxis: {
+                categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+                position: 'top',
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                },
+                crosshairs: {
+                    fill: {
+                        type: 'gradient',
+                        gradient: {
+                            colorFrom: '#D8E3F0',
+                            colorTo: '#BED1E6',
+                            stops: [0, 100],
+                            opacityFrom: 0.4,
+                            opacityTo: 0.5,
+                        }
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                }
+            },
+            yaxis: {
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false,
+                },
+
+
+            },
+            title: {
+                text: 'Predicted value from MNIST data',
+                floating: true,
+                offsetY: 330,
+                align: 'center',
+                style: {
+                    color: '#444'
+                }
+            }
+        },
+    });
     const createModel = async () => {
         const tfmodel = tf.sequential();
-
         let mnistData: any = new MnistData();
+        setLoadingText("Loading traning data...")
         await mnistData.load();
         setData(mnistData);
+        setLoadingText("Adding layers...")
 
         tfmodel.add(tf.layers.conv2d({
             inputShape: [28, 28, 1],
@@ -66,6 +147,8 @@ const Agenda = (props: any) => {
             loss: 'categoricalCrossentropy'
         });
 
+        setLoadingText("Training model...")
+
         try {
             for (let i = 0; i < TRAIN_BATCHES; i++) {
                 const batch = tf.tidy(() => {
@@ -81,21 +164,24 @@ const Agenda = (props: any) => {
                 tf.dispose(batch);
 
                 await tf.nextFrame();
+
+                setLoadingText("Completed...")
             }
         } catch (error) {
 
         } finally {
-            setModel(tfmodel);
+            setTimeout(() => setModel(tfmodel), 1000)
         }
     }
 
 
     const customImage = async () => {
 
-        const img = document.createElement("img")
+        const img = document.createElement("img");
         img.height = 28;
         img.width = 28;
         img.src = drawingRef.current.getDataURL();
+        console.log(img.src);
         img.onload = async function () {
             const image = tf.browser.fromPixels(img, 1);
             await predictCustomImage(image);
@@ -130,13 +216,85 @@ const Agenda = (props: any) => {
                 setPrediction(prediction_value[0] + "(Failed)")
             }
 
-            // div.appendChild(canvas);
-            // div.appendChild(label);
-            // document.getElementById('predictionResult').appendChild(div);
-            // alert(prediction_value)
-            // setPrediction(prediction_value[0]);
-            // console.log(prediction_value)
-            // console.log(input_value)
+            let d: any = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            d = d.map((e, i: number) => i === parseInt(prediction_value[0]) ? 1 : 0)
+            setChart({
+                series: [{
+                    name: 'Prediction',
+                    data: d
+                }],
+                options: {
+
+                    chart: {
+                        height: 350,
+                        type: 'bar',
+                    },
+                    plotOptions: {
+                        bar: {
+                            borderRadius: 10,
+                            dataLabels: {
+                                position: 'top', // top, center, bottom
+                            },
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function (val) {
+                            return val + "%";
+                        },
+                        offsetY: -20,
+                        style: {
+                            fontSize: '12px',
+                            colors: ["#f2056f"]
+                        }
+                    },
+
+                    xaxis: {
+                        categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+                        position: 'top',
+                        axisBorder: {
+                            show: false
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        crosshairs: {
+                            fill: {
+                                type: 'gradient',
+                                gradient: {
+                                    colorFrom: '#D8E3F0',
+                                    colorTo: '#BED1E6',
+                                    stops: [0, 100],
+                                    opacityFrom: 0.4,
+                                    opacityTo: 0.5,
+                                }
+                            }
+                        },
+                        tooltip: {
+                            enabled: true,
+                        }
+                    },
+                    yaxis: {
+                        axisBorder: {
+                            show: false
+                        },
+                        axisTicks: {
+                            show: false,
+                        },
+
+                       
+                    },
+                    title: {
+                        text: 'Predicted value from MNIST data',
+                        floating: true,
+                        offsetY: 330,
+                        align: 'center',
+                        style: {
+                            color: '#444'
+                        }
+                    }
+                },
+            })
         });
     }
 
@@ -161,45 +319,62 @@ const Agenda = (props: any) => {
 
     useEffect(() => {
         createModel()
-    }, [])
+    }, []);
+
     return (
         <Layout>
-            <div className='grid grid-cols-1 lg:grid-cols-2'>
-                <div>
-                    <p className="text-4xl font-bold text-lime">Machine Learning in web</p>
-                    {
-                        model && <canvas id="canvas" style={{ transform: "scale(5)", margin: 100 }} height={28} width={28} ref={ref}></canvas>
-                    }
-                    <p className="text-lime">Predicted: {prediction}</p>
-
-                    {
-                        model && <Button
-                            onClick={async () => {
-                                const batch = data.nextTestBatch(1);
-                                await predict(batch);
-                            }}>
-                            Random prediction
-                        </Button>
-                    }
-                </div>
-                <div>
-                    <p className='text-primary-100'>Predicted: {customPrediction}</p>
-                    <CanvasDraw hideGrid brushColor="white" catenaryColor="#000000" className="border-xl" id="drawing" ref={drawingRef} />
-
-                    {
-                        model && <Button
-                            onClick={customImage}>
-                            Predict
-                        </Button>
-                    }
-
-                    <Button
-                        onClick={() => drawingRef.current.clear()}
-                    >
-                        Clear canvas
-                    </Button>
-                </div>
+            <div className="p-10">
+                <TextAnimate text="Machine Learning" className="text-4xl uppercase font-bold text-primary-400" />
             </div>
+            {
+                model ?
+                    <div className='relative grid grid-cols-1 gap-4 lg:grid-cols-2 px-10'>
+                        <GlassCard>
+                            <canvas id="canvas" height={28} width={28} ref={ref}></canvas>
+
+                            <p className="text-secondary-50 text-2xl my-5">Predicted: {prediction}</p>
+                            {
+                                chart && <ReactApexChart {...chart} type="bar" height={350} />
+                            }
+
+                            <Button
+                                className="absolute bottom-5 left-5"
+                                onClick={async () => {
+                                    const batch = data.nextTestBatch(1);
+                                    await predict(batch);
+                                }}>
+                                Random prediction
+                            </Button>
+
+                        </GlassCard>
+                        <GlassCard>
+                            <p className='text-secondary-50'>Predicted: {customPrediction}</p>
+                            <CanvasDraw hideGrid brushColor="#000000" catenaryColor="#000000" style={{ background: "white", width: 500, height: 500 }} className="border-xl" id="drawing" ref={drawingRef} />
+
+                            <div className="mt-4">
+                                <Button
+                                    className="mr-4"
+                                    onClick={customImage}>
+                                    Predict
+                                </Button>
+
+
+                                <Button
+                                    className="mr-4"
+                                    onClick={() => drawingRef.current.clear()}
+                                >
+                                    Clear canvas
+                                </Button>
+                            </div>
+                        </GlassCard>
+                    </div> :
+                    <div className='w-full flex flex-col justify-center items-center'>
+                        <img src="/icons/tool.gif" />
+                        <p className="text-secondary-100 text-center text-xl">
+                            <b className="text-primary-400">Please wait</b> {loadingText}
+                        </p>
+                    </div>
+            }
         </Layout>
     )
 }
