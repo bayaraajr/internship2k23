@@ -371,7 +371,7 @@ const Agenda = (props: any) => {
                         </GlassCard>
                     </div> :
                     <div className='w-full flex flex-col justify-center items-center'>
-                        <b className="text-primary-400">Please wait</b>
+                        {/* <b className="text-primary-400">Please wait</b> */}
                         <img src="/icons/tool.gif" />
                         <p className="text-secondary-100 text-center text-xl">
                             {loadingText}
