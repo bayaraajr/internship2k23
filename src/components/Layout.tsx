@@ -29,8 +29,8 @@ const Layout = ({ title, children }: any) => {
             {children}
         </motion.div>
         <motion.div whileHover={{ scale: .9 }} transition={{ type: "spring" }}>
-            <GlassCard className="absolute cursor-pointer bottom-10 w-[200px] left-[calc(50%_-_100px)]">
-                <p className="text-secondary-100 text-center">by Bayarjargal.J</p>
+            <GlassCard onClick={() => window.open("https://github.com/bayaraajr", "_blank")} className="absolute flex justify-center items-center cursor-pointer bottom-10 w-[260px] left-[calc(50%_-_130px)]">
+                <img src="/assets/profile.png" className="w-10 h-10 rounded-full mr-4" /> <p className="text-secondary-100 text-center">by <b className="text-primary-400">Bayarjargal.J</b></p>
             </GlassCard>
         </motion.div>
 

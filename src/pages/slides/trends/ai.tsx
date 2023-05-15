@@ -1,14 +1,15 @@
-import Button from '@/components/Button';
-import { Spinner, TextInput } from 'flowbite-react';
+import { Button, Spinner, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import TextAnimate from '@/components/TextAnimate';
 import Layout from '@/components/Layout';
+import { useRouter } from 'next/router';
 
 const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
     const [prompt, setPrompt] = useState('');
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
     const generateImage = async (e: any) => {
         e.preventDefault();
         setLoading(true)
@@ -30,11 +31,24 @@ const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
     }
     return (
         <Layout>
-            <div className='p-10'>
-                <TextAnimate text="Chat GPT" className="text-4xl uppercase font-bold text-primary-400" />
+            <div className='p-10 flex justify-between items-center'>
+                <TextAnimate text="GPT-3 (DALL E)" className="text-4xl uppercase font-bold text-primary-400" />
+                <div className='flex justify-end items-center'>
+                    <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
+                        Previous
+                    </Button>
+                    <Button onClick={() => router.push("/slides/trends/3d")} className='bg-primary-400 hover:bg-primary-600 '>
+                        Next
+                    </Button>
+                </div>
+            </div>
+            <div className="px-10 mb-5">
+                <p className="text-secondary-100">DALL-E and DALL-E 2 are <b className="text-primary-400">deep learning models</b> developed by OpenAI to generate digital images from natural language descriptions, called "prompts". DALL-E was revealed by OpenAI in a blog post in January 2021, and uses a version of GPT-3 modified to generate images.</p>
+            </div>
+            <div className="px-10">
                 <form onSubmit={generateImage} className='flex items-center mt-10'>
                     <TextInput disabed={loading} placeholder='Type anything... Alien programmer e.g.' sizing="lg" className="w-full mr-4" value={prompt} onChange={(e: any) => setPrompt(e.target.value)} />
-                    <Button disabled={loading} type="submit">
+                    <Button className='bg-primary-400 hover:bg-primary-600 ' disabled={loading} type="submit">
                         {loading ? <Spinner /> : "Generate"}
                     </Button>
                 </form>
@@ -47,13 +61,13 @@ const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
                                 </motion.div>)
                             }
                         </div>
-                        : prompt.length === 0 ? <div className="flex h-[100vh] flex-col items-center justify-center">
+                        : prompt.length === 0 ? <div className="flex h-full mt-10 flex-col items-center justify-center">
                             <img className="w-24" src="/icons/search.gif" />
                             <p className='text-2xl text-secondary-50'>Search for <b className="text-primary-400">anything</b>...</p>
                         </div> : <p></p>
                 }
             </div>
-        </Layout>
+        </Layout >
     )
 }
 

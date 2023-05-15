@@ -7,15 +7,17 @@ import { useState } from 'react';
 
 import CanvasDraw from "react-canvas-draw";
 import { BATCH_SIZE, TRAIN_BATCHES } from '@/constants/tf';
-import Button from '@/components/Button';
 import TextAnimate from '@/components/TextAnimate';
 import GlassCard from '@/components/GlassCard';
 import dynamic from 'next/dynamic';
+import { Button } from 'flowbite-react';
+import { useRouter } from 'next/router';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
 const Agenda = (props: any) => {
 
+    const router = useRouter();
     const ref: any = useRef();
     const [loadingText, setLoadingText] = useState("Loading model...");
     const drawingRef: any = useRef();
@@ -224,7 +226,7 @@ const Agenda = (props: any) => {
                     data: d
                 }],
                 options: {
-
+                    colors: ["#f2056f"],
                     chart: {
                         height: 350,
                         type: 'bar',
@@ -282,7 +284,7 @@ const Agenda = (props: any) => {
                             show: false,
                         },
 
-                       
+
                     },
                     title: {
                         text: 'Predicted value from MNIST data',
@@ -315,16 +317,25 @@ const Agenda = (props: any) => {
         ctx.putImageData(imageData, 0, 0);
     }
 
-
-
     useEffect(() => {
         createModel()
     }, []);
 
     return (
         <Layout>
-            <div className="p-10">
+            <div className="p-10 flex justify-between items-center">
                 <TextAnimate text="Machine Learning" className="text-4xl uppercase font-bold text-primary-400" />
+                <div className='flex justify-end items-center'>
+                    <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
+                        Previous
+                    </Button>
+                    <Button onClick={() => router.push("/slides/trends/ai")} className='bg-primary-400 hover:bg-primary-600 '>
+                        Next
+                    </Button>
+                </div>
+            </div>
+            <div className="px-10 mb-5">
+                <p className="text-secondary-100">Tensorflow is an end-to-end open source <b className="text-primary-300">machine learning</b> platform for everyone.</p>
             </div>
             {
                 model ?
@@ -334,44 +345,36 @@ const Agenda = (props: any) => {
 
                             <p className="text-secondary-50 text-2xl my-5">Predicted: {prediction}</p>
                             {
-                                chart && <ReactApexChart {...chart} type="bar" height={350} />
+                                chart && <ReactApexChart {...chart} type="bar" height={300} />
                             }
 
-                            <Button
-                                className="absolute bottom-5 left-5"
-                                onClick={async () => {
-                                    const batch = data.nextTestBatch(1);
-                                    await predict(batch);
-                                }}>
-                                Random prediction
+                            <Button onClick={async () => {
+                                const batch = data.nextTestBatch(1);
+                                await predict(batch);
+                            }} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
+                                Random Prediction
                             </Button>
 
                         </GlassCard>
                         <GlassCard>
-                            <p className='text-secondary-50'>Predicted: {customPrediction}</p>
-                            <CanvasDraw hideGrid brushColor="#000000" catenaryColor="#000000" style={{ background: "white", width: 500, height: 500 }} className="border-xl" id="drawing" ref={drawingRef} />
+                            <p className="text-secondary-50 text-2xl my-5">Predicted: {customPrediction}</p>
+                            <CanvasDraw hideGrid brushColor="#000000" catenaryColor="#000000" style={{ background: "white", width: 300, height: 300 }} className="border-xl" id="drawing" ref={drawingRef} />
 
-                            <div className="mt-4">
-                                <Button
-                                    className="mr-4"
-                                    onClick={customImage}>
+                            <div className="mt-4 flex">
+                                <Button onClick={customImage} className='bg-primary-400 hover:bg-primary-600 mr-4'>
                                     Predict
                                 </Button>
-
-
-                                <Button
-                                    className="mr-4"
-                                    onClick={() => drawingRef.current.clear()}
-                                >
+                                <Button onClick={() => drawingRef.current.clear()} className='bg-primary-400 hover:bg-primary-600 mr-4'>
                                     Clear canvas
                                 </Button>
                             </div>
                         </GlassCard>
                     </div> :
                     <div className='w-full flex flex-col justify-center items-center'>
+                        <b className="text-primary-400">Please wait</b>
                         <img src="/icons/tool.gif" />
                         <p className="text-secondary-100 text-center text-xl">
-                            <b className="text-primary-400">Please wait</b> {loadingText}
+                            {loadingText}
                         </p>
                     </div>
             }

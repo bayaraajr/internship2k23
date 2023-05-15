@@ -14,7 +14,7 @@ const GlassCard: FC<IGlassCard> = ({ className, children, ...props }: IGlassCard
                 backdropFilter: "blur(8.3px)",
                 // border: "1px solid rgba(255, 255, 255, 0.3)"
 
-            }}>
+            }} {...props}>
             {
                 children
             }
