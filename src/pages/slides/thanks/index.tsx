@@ -17,7 +17,7 @@ const Thanks = (props: any) => {
                 </div>
             </div>
 
-            <div className='flex justify-center items-center flex-col'>
+            <div className='flex justify-center items-center flex-col pb-32'>
                 <img src="/icons/confetti.gif" />
                 <p className="text-4xl text-secondary-50 text-center">Feel free to ask any <b className='text-primary-400'>questions. </b><br /> And thanks for paying attention. </p>
             </div>
