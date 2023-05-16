@@ -37,16 +37,16 @@ const Agenda = (props: any) => {
                     <li>MNIST handwritten digit database: <Link className='text-primary-600' href="https://yann.lecun.com/exdb/mnist/" target='_blank'>MNIST dataset</Link></li>
                     <li>Easy to use, lightweight, cross-browser, general purpose 3D library: <Link className='text-primary-600' href="https://lordicon.com" target='_blank'>Three JS</Link></li>
                 </ul>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center mt-5 lg:mt-0 items-center">
                     <img src="/assets/phone.jpg" className='max-h-[500px]' />
                 </div>
             </div>
 
-            <div className='p-10 flex justify-center items-center'>
+            <div className='p-10 pb-32 flex justify-center items-center'>
                 <p className="text-secondary-200">Zero Cost, All I needed was a device with internet access.</p>
             </div>
 
-            <GlassCard className='flex absolute bottom-10 w-[180px] left-[calc(50%_-_90px)]'>
+            <GlassCard className='flex absolute bottom-2 lg:bottom-10 w-[180px] left-[calc(50%_-_90px)]'>
                 <p className='text-xl text-secondary-50 mr-2'>
                     Made with
                 </p>

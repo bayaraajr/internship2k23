@@ -5,12 +5,12 @@ import React from 'react';
 const Introduction = (props: any) => {
     return (
         <Layout>
-            <div className='grid grid-cols-1 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 pb-32'>
                 <div className='flex flex-col justify-center h-screen items-center'>
                     <img src="/assets/image.jpg" className='max-h-[700px] rounded-xl' />
                     <p className='text-secondary-50 text-xs italic'>Snatched it :)</p>
                 </div>
-                <div className='flex justify-left col-span-2 p-10 h-screen items-center'>
+                <div className='flex justify-left col-span-2 p-10 h-screen items-center pb-24'>
                     <div className='w-full grid grid-cols-1 w-full lg:grid-cols-3 gap-4'>
                         <div className='col-span-1 lg:col-span-3'>
                             <p className='font-bold text-4xl text-primary-400'>I'm Bayarjargal</p>

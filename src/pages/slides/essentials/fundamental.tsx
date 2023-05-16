@@ -51,7 +51,7 @@ const Agenda = (props: any) => {
     return (
         <Layout>
 
-            <div className='p-10 flex justify-between items-center'>
+            <div className='p-10 lg:flex justify-between items-center'>
                 <TextAnimate text="Fundamentals" className="text-4xl uppercase font-bold text-primary-400" />
                 <div className='flex mt-4 lg:mt-0 justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
@@ -68,7 +68,7 @@ const Agenda = (props: any) => {
             <div className='mx-10  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
                 {
-                    cards.map((e, idx) => <motion.div initial={{ y: 100, opacity: 0 }} whileInView={{ transition: { delay: .15 * idx, duration: .4 }, opacity: 1, y: 0 }} className={`cursor-pointer`} whileHover={{ scale: isDesktop ? 2 : 1, zIndex: 999, x: isDesktop ? (idx === 0 || idx === 3 ? 200 : idx === 2 || idx === 5 ? - 200 : 0) : 0 }}>
+                    cards.map((e, idx) => <motion.div initial={{ y: 100, opacity: 0 }} animate={{ transition: { delay: .15 * idx, duration: .4 }, opacity: 1, y: 0 }} className={`cursor-pointer`} whileHover={{ scale: isDesktop ? 2 : 1, zIndex: 999, x: isDesktop ? (idx === 0 || idx === 3 ? 200 : idx === 2 || idx === 5 ? - 200 : 0) : 0 }}>
                         {e}
                     </motion.div>)
                 }

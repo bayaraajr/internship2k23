@@ -55,9 +55,9 @@ const OpenAI = ({ ...props }: any) => {
 
     return (
         <Layout>
-            <div className='p-10 flex justify-between items-center'>
+            <div className='p-10 lg:flex justify-between items-center'>
                 <TextAnimate text="ThreeJS" className="text-4xl uppercase font-bold text-primary-400" />
-                <div className='flex justify-end items-center'>
+                <div className='flex justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
                         <GrLinkPrevious />
                     </Button>

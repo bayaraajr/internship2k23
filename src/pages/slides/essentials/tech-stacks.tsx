@@ -51,7 +51,7 @@ const Agenda = (props: any) => {
     </GlassCard>]
     return (
         <Layout>
-            <div className='p-10 flex justify-between items-center'>
+            <div className='p-10 lg:flex justify-between items-center'>
                 <TextAnimate text="Tech stacks" className="text-4xl uppercase font-bold text-primary-400" />
                 <div className='flex mt-4 lg:mt-0 justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
@@ -67,10 +67,10 @@ const Agenda = (props: any) => {
                 <p className="text-secondary-50 text-justify">To understand the meaning of tech stack, let us find out the intent behind creating a web application.
                     The application you build should be fast and provide an interactive browsing experience to users. If users seek more information, the application must be able to quickly fetch and organize the information in an easy-to-view manner. Further, as your application grows in popularity, it should scale well, without adding any performance overhead to the application ecosystem.</p>
             </div>
-            <div className="m-10">
+            <div className="m-10 pb-24">
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                     {
-                        cards.map((card, index) => <motion.div whileHover={{ scale: isDesktop ? 1.8 : 1, translateY: 50, translateX: !isDesktop ? 0 : index === 0 ? 200 : index === 1 ? 100 : index === 2 ? -100 : -200, zIndex: 999 }} initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ type: 'spring', delay: .15 * index }}>{card}</motion.div>)
+                        cards.map((card, index) => <motion.div whileHover={{ scale: isDesktop ? 1.8 : 1, translateY: 50, translateX: !isDesktop ? 0 : index === 0 ? 200 : index === 1 ? 100 : index === 2 ? -100 : -200, zIndex: 999 }} initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring', delay: .15 * index }}>{card}</motion.div>)
                     }
                 </div>
                 <div className="mt-10">

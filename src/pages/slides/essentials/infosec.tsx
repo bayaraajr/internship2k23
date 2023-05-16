@@ -126,7 +126,7 @@ const Agenda = (props: any) => {
     ]
     return (
         <Layout>
-            <div className='p-10 flex justify-between items-center'>
+            <div className='p-10 lg:flex justify-between items-center'>
                 <TextAnimate text="Security" className="text-4xl uppercase font-bold text-primary-400" />
                 <div className='flex mt-4 lg:mt-0 justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
@@ -137,7 +137,7 @@ const Agenda = (props: any) => {
                     </Button>
                 </div>
             </div>
-            <div className='px-10 pb-24'>
+            <div className='px-10 pb-32'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 z-2 py-10'>
                     <div className="col-span-1 lg:col-span-3">
                         <p className="text-secondary-50 text-2xl">Secure coding is the practice of writing software code that is designed to prevent security vulnerabilities and protect against potential attacks. Secure coding involves following best practices and guidelines that help reduce the risk of malicious attacks or data breaches. Here are some key principles of secure coding:</p>
