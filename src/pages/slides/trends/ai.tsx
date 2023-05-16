@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import TextAnimate from '@/components/TextAnimate';
 import Layout from '@/components/Layout';
 import { useRouter } from 'next/router';
-
+import { GrLinkPrevious, GrLinkNext } from 'react-icons/gr';
 const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
     const [prompt, setPrompt] = useState('');
     const [images, setImages] = useState([]);
@@ -35,17 +35,17 @@ const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
                 <TextAnimate text="GPT-3 (DALL E)" className="text-4xl uppercase font-bold text-primary-400" />
                 <div className='flex mt-4 lg:mt-0 justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
-                        Previous
+                        <GrLinkPrevious />
                     </Button>
                     <Button onClick={() => router.push("/slides/trends/3d")} className='bg-primary-400 hover:bg-primary-600 '>
-                        Next
+                        <GrLinkNext />
                     </Button>
                 </div>
             </div>
             <div className="px-10 mb-5">
                 <p className="text-secondary-100">DALL-E and DALL-E 2 are <b className="text-primary-400">deep learning models</b> developed by OpenAI to generate digital images from natural language descriptions, called "prompts". DALL-E was revealed by OpenAI in a blog post in January 2021, and uses a version of GPT-3 modified to generate images.</p>
             </div>
-            <div className="px-10">
+            <div className="px-10 pb-24">
                 <form onSubmit={generateImage} className='flex items-center mt-10'>
                     <TextInput disabed={loading} placeholder='Type anything... Alien programmer e.g.' className="w-full mr-4 bg-[none] text-primary-400" style={{ background: "none", color: "#f2056f" }} value={prompt} onChange={(e: any) => setPrompt(e.target.value)} />
                     <Button className='bg-primary-400 hover:bg-primary-600 ' disabled={loading} type="submit">
@@ -57,7 +57,7 @@ const OpenAI = ({ data, apiKey, orgKey, ...props }: any) => {
                         <div className="grid  grid-cols-2 lg:grid-cols-5 gap-4 mt-4">
                             {
                                 images.map((e: any, index: number) => <motion.div initial={{ y: 100, opacity: 0 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: .15 * index }}>
-                                    <img className="mr-4" src={e.url} />
+                                    <img className="rounded-xl w-full" src={e.url} />
                                 </motion.div>)
                             }
                         </div>

@@ -16,9 +16,9 @@ const Agenda = (props: any) => {
     const cards = [
         <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/globe.gif" className='w-20' />
-            <p className='mt-5 text-secondary-50 font-bold text-center text-2xl'>Essentials</p>
+            <p className='mt-5 text-secondary-50 font-bold text-center text-2xl'>General</p>
             <ul className='mt-5 text-secondary-900'>
-                <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Development lifecycle</li>
+                <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Web development</li>
                 <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Technologies</li>
                 <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />Design System & UX</li>
                 <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />InfoSec (Secure Coding)</li>

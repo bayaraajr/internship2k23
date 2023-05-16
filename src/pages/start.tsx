@@ -23,7 +23,7 @@ export default function Home() {
 
     return (
         <Layout>
-            <div className='flex justify-center items-center flex-col w-[100vw] h-full'>
+            <div className='flex justify-center items-center flex-col h-full'>
                 {/* <motion.div transition={{
           type: "spring",
           stiffness: 260,
@@ -46,66 +46,65 @@ export default function Home() {
                 <motion.p initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 1 }} className='text-secondary-100 w-[400px] text-center text-xl mb-16'>
                     Greetings, everyone. I will take you through the <b className='text-primary-500'>latest trends</b> in web development.
                 </motion.p>
-                <div>
 
-                    <MotionConfig transition={transition}>
-                        <motion.button
-                            className='motion-button'
-                            ref={ref}
-                            initial={false}
-                            animate={isHover ? "hover" : "rest"}
-                            whileTap="press"
+
+                <MotionConfig transition={transition}>
+                    <motion.button
+                        className='motion-button'
+                        ref={ref}
+                        initial={false}
+                        animate={isHover ? "hover" : "rest"}
+                        whileTap="press"
+                        variants={{
+                            rest: { scale: 1 },
+                            hover: { scale: 1.5 },
+                            press: { scale: 1.4 }
+                        }}
+                        onHoverStart={() => {
+                            resetMousePosition();
+                            setIsHover(true);
+                        }}
+                        onHoverEnd={() => {
+                            resetMousePosition();
+                            setIsHover(false);
+                        }}
+                        onTapStart={() => setIsPress(true)}
+                        onTap={() => setIsPress(false)}
+                        onTapCancel={() => setIsPress(false)}
+                        onPointerMove={(e) => {
+                            mouseX.set(e.clientX - bounds.x - bounds.width / 2);
+                            mouseY.set(e.clientY - bounds.y - bounds.height / 2);
+                        }}
+                        onClick={() => router.push("/slides/agenda")}
+                    >
+                        <motion.div
+                            className="shapes"
                             variants={{
-                                rest: { scale: 1 },
-                                hover: { scale: 1.5 },
-                                press: { scale: 1.4 }
+                                rest: { opacity: 0 },
+                                hover: { opacity: 1 }
                             }}
-                            onHoverStart={() => {
-                                resetMousePosition();
-                                setIsHover(true);
-                            }}
-                            onHoverEnd={() => {
-                                resetMousePosition();
-                                setIsHover(false);
-                            }}
-                            onTapStart={() => setIsPress(true)}
-                            onTap={() => setIsPress(false)}
-                            onTapCancel={() => setIsPress(false)}
-                            onPointerMove={(e) => {
-                                mouseX.set(e.clientX - bounds.x - bounds.width / 2);
-                                mouseY.set(e.clientY - bounds.y - bounds.height / 2);
-                            }}
-                            onClick={() => router.push("/slides/agenda")}
                         >
-                            <motion.div
-                                className="shapes"
-                                variants={{
-                                    rest: { opacity: 0 },
-                                    hover: { opacity: 1 }
-                                }}
-                            >
-                                <div className="pink blush" />
-                                <div className="blue blush" />
-                                <div className="container">
-                                    <Suspense fallback={null}>
-                                        <Shapes
-                                            isHover={isHover}
-                                            isPress={isPress}
-                                            mouseX={mouseX}
-                                            mouseY={mouseY}
-                                        />
-                                    </Suspense>
-                                </div>
-                            </motion.div>
-                            <motion.div
-                                variants={{ hover: { scale: 0.85 }, press: { scale: 1.1 } }}
-                                className="label"
-                            >
-                                Let's begin
-                            </motion.div>
-                        </motion.button>
-                    </MotionConfig>
-                </div>
+                            <div className="pink blush" />
+                            <div className="blue blush" />
+                            <div className="container">
+                                <Suspense fallback={null}>
+                                    <Shapes
+                                        isHover={isHover}
+                                        isPress={isPress}
+                                        mouseX={mouseX}
+                                        mouseY={mouseY}
+                                    />
+                                </Suspense>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            variants={{ hover: { scale: 0.85 }, press: { scale: 1.1 } }}
+                            className="label"
+                        >
+                            Let's begin
+                        </motion.div>
+                    </motion.button>
+                </MotionConfig>
             </div>
         </Layout>
     )

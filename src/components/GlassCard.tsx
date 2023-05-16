@@ -9,10 +9,10 @@ const GlassCard: FC<IGlassCard> = ({ className, children, ...props }: IGlassCard
         <div
             className={`p-5 rounded-2xl ${className}`}
             style={{
-                background: "rgba(0, 0, 0, 0.4)",
+                background: "rgba(0, 0, 0, 0.5)",
                 boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-                backdropFilter: "blur(8.3px)",
-                "-webkit-backdrop-filter": "blur(8.3px)"
+                backdropFilter: "blur(10px)",
+                "-webkit-backdrop-filter": "blur(10px)"
                 // border: "1px solid rgba(255, 255, 255, 0.3)"
 
             }} {...props}>

@@ -32,7 +32,7 @@ const Layout = ({ title, children }: any) => {
     const [ref, bounds] = useMeasure({ scroll: false });
     return <MotionContainer>
         <motion.div
-            className="bg-dark w-screen h-screen border-lime border-1 z-2"
+            className="bg-dark w-screen h-screen border-lime border-1 z-2 lg:px-24 lg:py-12"
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 300, opacity: 0 }}
@@ -97,14 +97,14 @@ const Layout = ({ title, children }: any) => {
 
 
                 <GlassCard onClick={() => window.open("https://github.com/bayaraajr", "_blank")} className="absolute flex justify-center items-center cursor-pointer bottom-[450px] w-full">
-                    <img src="/assets/profile.png" className="w-10 h-10 rounded-full mr-4" /> <p className="text-secondary-100 text-center">by <b className="text-primary-400">@bayarjargal.jr</b></p>
+                    <img src="/assets/profile.png" className="w-10 h-10 rounded-full mr-4" /> <p className="text-secondary-100 text-center">by <b className="text-primary-400">@bayarjargal.j</b></p>
                 </GlassCard>
             </motion.div>
 
         </AnimatePresence>
         <GlassCard onClick={() => setOpen(o => !o)} className="absolute p-4 rounded-full flex justify-center w-16 h-16 items-center cursor-pointer bottom-10 right-10 z-9999">
             <motion.div transition={{ type: "spring" }}>
-                <img src="/icons/doc.gif" className="select-none"/>
+                <img src="/icons/doc.gif" className="select-none" />
             </motion.div>
         </GlassCard>
 

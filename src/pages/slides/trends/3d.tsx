@@ -8,7 +8,7 @@ import * as THREE from 'three'
 import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { OrbitControls, Sky } from '@react-three/drei'
 import { Water } from 'three-stdlib'
-
+import { GrLinkPrevious, GrLinkNext } from 'react-icons/gr';
 extend({ Water })
 
 function Ocean() {
@@ -59,10 +59,10 @@ const OpenAI = ({ ...props }: any) => {
                 <TextAnimate text="ThreeJS" className="text-4xl uppercase font-bold text-primary-400" />
                 <div className='flex justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
-                        Previous
+                        <GrLinkPrevious />
                     </Button>
                     <Button onClick={() => router.push("/slides/roadmap")} className='bg-primary-400 hover:bg-primary-600 '>
-                        Next
+                        <GrLinkNext />
                     </Button>
                 </div>
             </div>

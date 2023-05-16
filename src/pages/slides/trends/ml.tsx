@@ -12,6 +12,7 @@ import GlassCard from '@/components/GlassCard';
 import dynamic from 'next/dynamic';
 import { Button } from 'flowbite-react';
 import { useRouter } from 'next/router';
+import { GrLinkPrevious, GrLinkNext } from 'react-icons/gr';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
@@ -327,10 +328,10 @@ const Agenda = (props: any) => {
                 <TextAnimate text="Machine Learning" className="text-4xl uppercase font-bold text-primary-400" />
                 <div className='flex mt-4 lg:mt-0 justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
-                        Previous
+                        <GrLinkPrevious />
                     </Button>
                     <Button onClick={() => router.push("/slides/trends/ai")} className='bg-primary-400 hover:bg-primary-600 '>
-                        Next
+                        <GrLinkNext />
                     </Button>
                 </div>
             </div>

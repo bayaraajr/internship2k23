@@ -7,7 +7,7 @@ const Introduction = (props: any) => {
         <Layout>
             <div className='grid grid-cols-1 lg:grid-cols-3'>
                 <div className='flex flex-col justify-center h-screen items-center'>
-                    <img src="/assets/image.jpg" className='max-h-[800px] rounded-xl' />
+                    <img src="/assets/image.jpg" className='max-h-[700px] rounded-xl' />
                     <p className='text-secondary-50 text-xs italic'>Snatched it :)</p>
                 </div>
                 <div className='flex justify-left col-span-2 p-10 h-screen items-center'>

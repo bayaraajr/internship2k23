@@ -3,7 +3,7 @@ import TextAnimate from '@/components/TextAnimate';
 import { Button } from 'flowbite-react';
 import { useRouter } from 'next/router';
 import React from 'react';
-
+import { GrLinkPrevious, GrLinkNext } from 'react-icons/gr';
 const Thanks = (props: any) => {
     const router = useRouter();
     return (
@@ -12,7 +12,7 @@ const Thanks = (props: any) => {
                 {/* <TextAnimate text="Thanks for coming" className="text-4xl uppercase font-bold text-primary-400" /> */}
                 <div className='flex mt-4 lg:mt-0 justify-between lg:justify-end items-center'>
                     <Button onClick={() => router.back()} className='bg-primary-400 hover:bg-primary-600 mr-4 '>
-                        Previous
+                        <GrLinkPrevious />
                     </Button>
                 </div>
             </div>
