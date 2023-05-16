@@ -27,7 +27,7 @@ const Trends = (props: any) => {
             </Button>
         </div>,
         <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
-            <img src="/icons/ar.gif" className='w-24' />
+            <img src="/icons/tech.gif" className='w-24' />
             <p className='text-secondary-50 mt-5 font-bold text-center text-2xl'>Tech Stacks</p>
             <ul className='mt-5 text-secondary-900'>
                 <li className='flex justify-start items-center'><img src="/icons/star.gif" className='w-8 mr-2' />MERN & MEAN</li>

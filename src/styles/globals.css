@@ -8,6 +8,7 @@ html {
 }
 
 .motion-button {
+  user-select: none;
   --purple: #db07d1;
   --pink: #f2056f;
   --blue: #61dafb;
