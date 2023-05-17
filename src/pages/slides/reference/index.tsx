@@ -35,6 +35,7 @@ const Agenda = (props: any) => {
                     <li>Icons by: <Link className='text-primary-600' href="https://lordicon.com" target='_blank'>Lord Icons</Link></li>
                     <li>Handwritten digit recognition model by: <Link className='text-primary-600' href="https://www.tensorflow.org/js" target='_blank'>Tensorflow JS</Link></li>
                     <li>MNIST handwritten digit database: <Link className='text-primary-600' href="https://yann.lecun.com/exdb/mnist/" target='_blank'>MNIST dataset</Link></li>
+                    <li>Image generation: <Link className='text-primary-600' href="https://openai.com/research/dall-e" target='_blank'>GPT - 3 DALL E</Link></li>
                     <li>Easy to use, lightweight, cross-browser, general purpose 3D library: <Link className='text-primary-600' href="https://lordicon.com" target='_blank'>Three JS</Link></li>
                 </ul>
                 <div className="flex justify-center mt-5 lg:mt-0 items-center">
