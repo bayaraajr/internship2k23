@@ -14,7 +14,7 @@ const Agenda = (props: any) => {
     const isDesktop = useMediaQuery('(min-width: 960px)');
 
     const cards = [
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/globe.gif" className='w-20' />
             <p className='mt-5 text-secondary-50 font-bold text-center text-2xl'>General</p>
             <ul className='mt-5 text-secondary-900'>
@@ -28,7 +28,7 @@ const Agenda = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/computer.gif" className='w-20' />
             <p className='text-secondary-50 mt-5 font-bold text-center text-2xl'>Trends</p>
             <ul className='mt-5 text-secondary-900'>
@@ -41,7 +41,7 @@ const Agenda = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/man.gif" className='w-20' />
             <p className='text-secondary-50 font-bold text-center text-2xl'>Roadmap</p>
             <ul className='mt-5 text-secondary-900'>
@@ -54,7 +54,7 @@ const Agenda = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/discussion.gif" className='w-20' />
             <p className='text-secondary-50 font-bold text-center text-2xl'>Discussion</p>
             <ul className='mt-5 text-secondary-900'>

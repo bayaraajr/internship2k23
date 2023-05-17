@@ -14,7 +14,7 @@ const Trends = (props: any) => {
     const isDesktop = useMediaQuery('(min-width: 960px)');
 
     const cards = [
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/ai.gif" className='w-20' />
             <p className='mt-5 text-secondary-50 font-bold text-center text-2xl'>Web Development</p>
             <ul className='mt-5 text-secondary-900'>
@@ -26,7 +26,7 @@ const Trends = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/tech.gif" className='w-24' />
             <p className='text-secondary-50 mt-5 font-bold text-center text-2xl'>Tech Stacks</p>
             <ul className='mt-5 text-secondary-900'>
@@ -38,7 +38,7 @@ const Trends = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/design.gif" className='w-20' />
             <p className='text-secondary-50 font-bold text-center text-2xl'>Design System & UI/UX</p>
             <ul className='mt-5 text-secondary-900'>
@@ -50,7 +50,7 @@ const Trends = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/security.gif" className='w-20' />
             <p className='text-secondary-50 font-bold text-center text-2xl'>Information Security</p>
             <ul className='mt-5 text-secondary-900'>

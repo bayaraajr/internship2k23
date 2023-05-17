@@ -8,15 +8,6 @@ html {
 
 }
 
-body {
-  cursor: url("/assets/normal.png"), auto !important;
-}
-
-button,
-a,
-.cursor-snap {
-  cursor: url("/assets/snap.png"), auto !important;
-}
 
 .motion-button {
   user-select: none;
