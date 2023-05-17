@@ -14,7 +14,7 @@ const Trends = (props: any) => {
     const isDesktop = useMediaQuery('(min-width: 960px)');
 
     const cards = [
-        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/ai.gif" className='w-20' />
             <p className='mt-5 text-secondary-50 font-bold text-center text-2xl'>AI and Machine Learning</p>
             <ul className='mt-5 text-secondary-900'>
@@ -26,7 +26,7 @@ const Trends = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/ar.gif" className='w-24' />
             <p className='text-secondary-50 mt-5 font-bold text-center text-2xl'>VR and AR</p>
             <ul className='mt-5 text-secondary-900'>
@@ -38,7 +38,7 @@ const Trends = (props: any) => {
                 Get started
             </Button>
         </div>,
-        <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
+        <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
             <img src="/icons/pwa.gif" className='w-20' />
             <p className='text-secondary-50 font-bold text-center text-2xl'>Progressive Web Apps</p>
             <ul className='mt-5 text-secondary-900'>

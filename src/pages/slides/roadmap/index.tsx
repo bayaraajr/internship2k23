@@ -25,7 +25,7 @@ const Agenda = (props: any) => {
             </div>
             <div className='p-10 grid gap-4 grid-cols-1 lg:grid-cols-3'>
                 <GlassCard>
-                    <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
+                    <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
                         <img src="/icons/man.gif" className='w-20' />
                         <p className='text-secondary-50 font-bold text-center text-2xl'>Frontend</p>
                         <p className="text-secondary-50 text-justify my-5">As a front-end developer, you'll be responsible for creating the user interface of a website, to ensure it looks good and is easy to use, with great focus on design principles and user experience.</p>
@@ -35,7 +35,7 @@ const Agenda = (props: any) => {
                     </div>
                 </GlassCard>
                 <GlassCard>
-                    <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
+                    <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
                         <img src="/icons/man.gif" className='w-20' />
                         <p className='text-secondary-50 font-bold text-center text-2xl'>Backend</p>
                         <p className="text-secondary-50 text-justify my-5">A backend developer is responsible for the development of server-side components of a web application i.e. working with databases, handling requests, creating server-side APIs that can be consumed by frontend developers to retrieve and manipulate data</p>
@@ -45,7 +45,7 @@ const Agenda = (props: any) => {
                     </div>
                 </GlassCard>
                 <GlassCard>
-                    <div className='flex hover:cursor-pointer justify-center items-center flex-col p-8 min-h-[400px]'>
+                    <div className='flex hover:cursor-snap justify-center items-center flex-col p-8 min-h-[400px]'>
                         <img src="/icons/man.gif" className='w-20' />
                         <p className='text-secondary-50 font-bold text-center text-2xl'>Fullstack</p>
                         <p className="text-secondary-50 text-justify my-5">Frontend + Backend</p>

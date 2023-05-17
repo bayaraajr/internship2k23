@@ -16,11 +16,11 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className='flex justify-center items-center flex-col w-[100vw] h-full'>
+      <div className='flex justify-center items-center flex-col h-full'>
         <motion.p initial={{ opacity: 0, y: 100 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 1 }} className='text-secondary-100 w-[400px] text-center text-xl mb-16'>
           Scan <b className="text-primary-400">QR</b> below.
         </motion.p>
-        <img src="/assets/frame.png" className="rounded-xl cursor-pointer" onClick={() => router.push("/start")} />
+        <img src="/assets/frame.png" className="rounded-xl cursor-snap" onClick={() => router.push("/start")} />
       </div>
 
     </Layout>

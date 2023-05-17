@@ -66,6 +66,11 @@ const BugChart = ({ ...props }) => {
                 },
                 tooltip: {
                     enabled: true,
+                },
+                title: {
+                    styles: {
+                        color: "#FFFFFF"
+                    }
                 }
             },
             yaxis: {
@@ -84,7 +89,7 @@ const BugChart = ({ ...props }) => {
                 // offsetY: 330,
                 align: 'center',
                 style: {
-                    color: '#444'
+                    color: '#FFFFFF'
                 }
             }
         },
@@ -143,8 +148,8 @@ const Agenda = (props: any) => {
                         <p className="text-secondary-50 text-2xl">Secure coding is the practice of writing software code that is designed to prevent security vulnerabilities and protect against potential attacks. Secure coding involves following best practices and guidelines that help reduce the risk of malicious attacks or data breaches. Here are some key principles of secure coding:</p>
                     </div>
                     {
-                        cards.map((card, index) => {
-                            return <motion.div>
+                        cards.map((card, idx) => {
+                            return <motion.div initial={{ y: 100, opacity: 0 }} animate={{ transition: { delay: .15 * idx, duration: .4 }, opacity: 1, y: 0 }} className={`cursor-snap`} whileHover={{ scale: isDesktop ? 2 : 1, zIndex: 999, x: isDesktop ? (idx === 0 || idx === 3 ? 200 : idx === 2 || idx === 5 ? - 200 : 0) : 0 }}>
                                 {card}
                             </motion.div>
                         })

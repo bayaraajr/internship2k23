@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import useMediaQuery from '@/hooks/useMediaQuery';
 
 import { GrLinkPrevious, GrLinkNext } from 'react-icons/gr';
-import { SiAngular, SiDotnet, SiExpress, SiFlutter, SiJoomla, SiLaravel, SiNextdotjs, SiRemix, SiSpringboot, SiWix, SiWordpress } from 'react-icons/si';
+import { SiAngular, SiDotnet, SiExpress, SiFlutter, SiJoomla, SiLaravel, SiNextdotjs, SiRemix, SiSpringboot, SiVuedotjs, SiWix, SiWordpress } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
 import { DiDjango, DiRuby } from 'react-icons/di';
 import { Button } from 'flowbite-react';
@@ -68,7 +68,7 @@ const Agenda = (props: any) => {
             <div className='mx-10  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
                 {
-                    cards.map((e, idx) => <motion.div initial={{ y: 100, opacity: 0 }} animate={{ transition: { delay: .15 * idx, duration: .4 }, opacity: 1, y: 0 }} className={`cursor-pointer`} whileHover={{ scale: isDesktop ? 2 : 1, zIndex: 999, x: isDesktop ? (idx === 0 || idx === 3 ? 200 : idx === 2 || idx === 5 ? - 200 : 0) : 0 }}>
+                    cards.map((e, idx) => <motion.div initial={{ y: 100, opacity: 0 }} animate={{ transition: { delay: .15 * idx, duration: .4 }, opacity: 1, y: 0 }} className={`cursor-snap`} whileHover={{ scale: isDesktop ? 2 : 1, zIndex: 999, x: isDesktop ? (idx === 0 || idx === 3 ? 200 : idx === 2 || idx === 5 ? - 200 : 0) : 0 }}>
                         {e}
                     </motion.div>)
                 }
@@ -132,6 +132,11 @@ const Agenda = (props: any) => {
                 <div className='flex flex-col justify-center items-center'>
                     <SiRemix className="text-6xl text-primary-400" />
                     <p className="text-center text-secondary-50 mt-4">Remix</p>
+
+                </div>
+                <div className='flex flex-col justify-center items-center'>
+                    <SiVuedotjs className="text-6xl text-primary-400" />
+                    <p className="text-center text-secondary-50 mt-4">Vue.js</p>
 
                 </div>
             </div>
